@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Page de Vue Thymeleaf</title>
+</head>
+<body>
+    <h1>Formulaire</h1>
+    <form action="#" method="post" th:object="${utilisateur}">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" th:field="*{nom}"><br>
+        <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Erreur(s) de saisie</span><br>
+        <label for="age">Âge :</label>
+        <input type="text" id="age" name="age" th:field="*{age}"><br>
+        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Erreur(s) de saisie</span><br>
+        <input type="submit" value="Soumettre">
+    </form>
+    <div th:if="${message}">
+        <h2 th:text="${message}"></h2>
+    </div>
+</body>
+</html>
